@@ -21,7 +21,7 @@ fieldOptions.iconicUserFields = [
     },
     {
         name: 'Twitter',
-        icon: 'twitter',
+        icon: 'fab-twitter',
         link: {
             type: 'userField',
             value: 'Twitter (URL)'
@@ -29,7 +29,7 @@ fieldOptions.iconicUserFields = [
     },
     {
         name: 'Facebook',
-        icon: 'facebook',
+        icon: 'fab-facebook-f',
         link: {
             type: 'userField',
             value: 'Facebook (URL)'
@@ -37,7 +37,7 @@ fieldOptions.iconicUserFields = [
     },
     {
         name: 'LinkedIn',
-        icon: 'linkedin',
+        icon: 'fab-linkedin-in',
         link: {
             type: 'userField',
             value: 'LinkedIn (URL)'
@@ -129,7 +129,7 @@ api.modifyClass('component:user-card-contents', {
     <div class="iconic-user-fields">
         {{#each userIconicUserFields as |ic|}}
         {{#if ic.icon}}
-        <a href="{{ic.href}}" rel="nofollow" target="_blank" title="{{ic.name}}"><i class="fa fa-{{ic.icon}}"></i></a>
+        <a href="{{ic.href}}" rel="nofollow" target="_blank" title="{{ic.name}}">{{d-icon ic.icon}}</a>
         {{/if}}
         {{/each}}
     </div>
@@ -139,7 +139,7 @@ api.modifyClass('component:user-card-contents', {
 <script type='text/x-handlebars' data-template-name='/connectors/user-location-and-website/user-card-profile-customization'>
     {{#if userLocationAndWebsiteUserFields}}
     {{#each userLocationAndWebsiteUserFields as |lw|}}
-    {{fa-icon lw.icon}}
+    {{d-icon lw.icon}}
     <a href={{lw.href}} rel="nofollow" target="_blank" title="{{lw.name}}">{{lw.link_title}}</a>
     {{/each}}
     {{/if}}
@@ -150,7 +150,7 @@ api.modifyClass('component:user-card-contents', {
     <div class="iconic-user-fields">
         {{#each iconicUserFields as |ic|}}
         {{#if ic.icon}}
-        <a href="{{ic.href}}" rel="nofollow" target="_blank" title="{{ic.name}}"><i class="fa fa-{{ic.icon}}"></i></a>
+        <a href="{{ic.href}}" rel="nofollow" target="_blank" title="{{ic.name}}">{{d-icon ic.icon}}</a>
         {{/if}}
         {{/each}}
     </div>
@@ -161,7 +161,7 @@ api.modifyClass('component:user-card-contents', {
     {{#if locationAndWebsiteUserFields}}
     {{#each locationAndWebsiteUserFields as |lw|}}
     <span>
-        {{fa-icon lw.icon}}
+        {{d-icon lw.icon}}
         <a href={{lw.href}} rel="nofollow" target="_blank" title="{{lw.name}}">{{lw.link_title}}</a>
     </span>
     {{/each}}

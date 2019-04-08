@@ -74,7 +74,7 @@ function parseFieldOptions (component, name) {
         if (field.link.type === 'thisGetUser') {
             if (field.link.value === 'website') component.set(model_name + '.website_name', false)
             Ember.set(field, 'href', base + (component.get(model_name + '.' + field.link.value) || ''))
-        } else if (field.link.type === 'userField') {
+        } else if (userFields && field.link.type === 'userField') {
             var siteUserField = siteUserFields.filterBy('name', field.link.value)[0]
             if (siteUserField) {
                 Ember.set(field, 'href', base + (userFields[siteUserField.get('id')] || ''))
@@ -82,7 +82,7 @@ function parseFieldOptions (component, name) {
                 return null
             }
         }
-        if (field.title && field.title.type === 'userField') {
+        if (userFields && field.title && field.title.type === 'userField') {
             var siteUserField = siteUserFields.filterBy('name', field.title.value)[0]
             if (siteUserField) {
                 Ember.set(field, 'link_title', userFields[siteUserField.get('id')])
